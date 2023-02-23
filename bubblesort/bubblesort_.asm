@@ -7,9 +7,7 @@ public _sortuj
 _sortuj proc
 	push ebp
 	mov ebp, esp
-	push ebx
 	push esi
-	push edi
 
 	mov ecx, [ebp + 12] ; liczba elementów
 	dec ecx
@@ -31,9 +29,7 @@ pomin:
 	pop ecx ; przywrócenie iteratora
 	loop ptl1
 
-	pop edi
 	pop esi
-	pop ebx
 	pop ebp
 	ret
 _sortuj endp
