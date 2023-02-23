@@ -11,24 +11,24 @@ _sortuj proc
 	push esi
 	push edi
 
-	mov ecx, [ebp + 12] ; liczba elementów
+	mov ecx, [ebp + 12] ; liczba elementÃ³w
 	dec ecx
 ptl1:
 	mov esi, [ebp + 8] ; adres pierwszego elementu tablicy
-	push ecx ; zapisanie iteratora zewnêtrznej pêtli
+	push ecx ; zapisanie iteratora zewnÄ™trznej pÄ™tli
 ptl2:
 	mov eax, [esi] ; element i
 	mov edx, [esi + 4] ; element i + 1
 	cmp eax, edx
-	ja zamien ; jeœli elementy s¹ w z³ej kolejnoœci
+	ja zamien ; jeÅ›li elementy sÄ… w zÅ‚ej kolejnoÅ›ci
 	jmp pomin
 zamien:
 	mov [esi], edx
 	mov [esi + 4], eax
 pomin:
-	add esi, 4 ; adres nastêpnego elementu tablicy
+	add esi, 4 ; adres nastÄ™pnego elementu tablicy
 	loop ptl2
-	pop ecx ; przywrócenie iteratora
+	pop ecx ; przywrÃ³cenie iteratora
 	loop ptl1
 
 	pop edi
