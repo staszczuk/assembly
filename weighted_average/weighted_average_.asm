@@ -15,8 +15,8 @@ _weighted_average proc
 	mov ecx, [ebp + 16] ; n
 	fldz ; st0 = numerator placeholder
 numerator:
-	fld dword ptr [eax] ; st0 = value, st1 = numerator
-	fld dword ptr [edx] ; st0 = value, st1 = weight, st2 = numerator
+	fld dword ptr [edx] ; st0 = weight, st1 = numerator
+	fld dword ptr [eax] ; st0 = value, st1 = weight, st2 = numerator
 	fmulp ; st0 = value * weight, st1 = numerator
 	faddp ; st0 = numerator
 	add eax, 4 ; next value
